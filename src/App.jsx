@@ -1,14 +1,39 @@
 import "./App.css";
-import HookForm from "./components/HookForm/HookForm";
+import ReusableForm from "./components/ReusableFrom/ReusableForm";
 
 function App() {
+  const handleSignUp = (data) => {
+    console.log("Sign Up data : ", data);
+  };
+
+  const handleProfileUpdate = (data) => {
+    console.log("Update data : ", data);
+  };
+
   return (
     <>
       <h1>Vite + React</h1>
       {/* <SimpleForm></SimpleForm> */}
       {/* <StatefulForm></StatefulForm> */}
       {/* <RefForm></RefForm> */}
-      <HookForm></HookForm>
+      {/* <HookForm></HookForm> */}
+      <ReusableForm formTitle={"Sign UP"} handleSubmit={handleSignUp}>
+        <div>
+          <h2>Sign Up</h2>
+          <p>Please sign up right now</p>
+        </div>
+      </ReusableForm>
+      <br />
+      <ReusableForm
+        formTitle={"Profile Update"}
+        submitBtnTxt="Update"
+        handleSubmit={handleProfileUpdate}
+      >
+        <div>
+          <h2>Update Profile</h2>
+          <p>Alwayes keep your profiel updated</p>
+        </div>
+      </ReusableForm>
     </>
   );
 }
